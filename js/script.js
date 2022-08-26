@@ -14,7 +14,10 @@ pulsanteGioca.addEventListener("mouseleave", function(){
 
 // Se viene cliccato il pulsante genere l'evento ovvero mostra il risultato del gioco
 pulsanteGioca.addEventListener("click", function(){
-    pulsanteGioca.disabled = true;
+
+// Disabilito il pulsante quando viene cliccato
+pulsanteGioca.disabled = true;
+
 // Genero dei valori che vanno da 0 a 5 per indicare gli indici dell'array
 let valoreEstrattoComputer = Math.ceil((Math.random() * 10).toFixed() / 2);
 let valoreEstrattoUtente = Math.ceil((Math.random() * 10).toFixed() / 2);
@@ -26,13 +29,20 @@ console.log(`Computer: ${valoreDadoComputer}`);
 console.log(`Utente: ${valoreDadoUtente}`);
 
 // Mostra a schermo se il vincitore è il computer, l'utente o invece è pareggio
-
 // Recupero dell'elemento div in cui verrà mostrato il risultato del gioco
 const mostraRisultato = document.querySelector(".risultato");
 const risultato = document.createElement("h2");
 const risultato2 = document.createElement("h2");
-
 risultato2.style.color = "#fff";
+
+// Creo un pulsante di reset per giocare di nuovo
+const reset = document.createElement("input");
+reset.type = "button";
+reset.value = "Gioca di nuovo";
+
+reset.addEventListener("click", function(){
+    window.location.reload();
+});
 
 if(valoreDadoComputer > valoreDadoUtente){
     risultato.innerHTML = `Computer: ${valoreDadoComputer} - Tu: ${valoreDadoUtente}`;
@@ -50,6 +60,7 @@ if(valoreDadoComputer > valoreDadoUtente){
 
 mostraRisultato.append(risultato);
 mostraRisultato.append(risultato2);
+mostraRisultato.append(reset);
 
 });
 

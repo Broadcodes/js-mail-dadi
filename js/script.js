@@ -12,9 +12,6 @@ const valoreDadoUtente = dadoUtente[valoreEstrattoUtente];
 console.log(`Computer: ${valoreDadoComputer}`);
 console.log(`Utente: ${valoreDadoUtente}`);
 
-// Recupero dell'elemento div in cui verrà mostrato il risultato del gioco
-const mostraRisultato = document.querySelector("risultato");
-
 // Modifico il colore del pulsante se il mouse va sopra l'elemento
 const pulsanteGioca = document.getElementById("lanciaDado");
 pulsanteGioca.addEventListener("mouseenter", function(){
@@ -25,16 +22,38 @@ pulsanteGioca.addEventListener("mouseleave", function(){
     pulsanteGioca.style.backgroundColor = "red";
 });
 
-
-
-
+// Se viene cliccato il pulsante genere l'evento ovvero mostra il risultato del gioco
+pulsanteGioca.addEventListener("click", function(){
 
 // Mostra a schermo se il vincitore è il computer, l'utente o invece è pareggio
+
+// Recupero dell'elemento div in cui verrà mostrato il risultato del gioco
+const mostraRisultato = document.querySelector(".risultato");
+const risultato = document.createElement("h2");
+const risultato2 = document.createElement("h2");
+
+risultato2.style.color = "#fff";
+
 if(valoreDadoComputer > valoreDadoUtente){
+    risultato.innerHTML = `Computer: ${valoreDadoComputer} - Tu: ${valoreDadoUtente}`;
+    risultato2.innerHTML = `Il vincitore è il Computer &#128520;`;
     console.log("Il vincitore è il Computer");
 } else if (valoreDadoComputer < valoreDadoUtente){
+    risultato.innerHTML = `Computer: ${valoreDadoComputer} - Tu: ${valoreDadoUtente}`;
+    risultato2.innerHTML = "Il vincitore sei TU! &#128540";
     console.log("Il vincitore è l'Utente");
 } else {
+    risultato.innerHTML = `Computer: ${valoreDadoComputer} - Tu: ${valoreDadoUtente}`;
+    risultato2.innerHTML = "Pareggio &#128530;";
     console.log("Pareggio");
 }
+
+mostraRisultato.append(risultato);
+mostraRisultato.append(risultato2);
+
+});
+
+
+
+
 

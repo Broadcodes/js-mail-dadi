@@ -12,6 +12,23 @@ const valoreDadoUtente = dadoUtente[valoreEstrattoUtente];
 console.log(`Computer: ${valoreDadoComputer}`);
 console.log(`Utente: ${valoreDadoUtente}`);
 
+// Recupero dell'elemento div in cui verrà mostrato il risultato del gioco
+const mostraRisultato = document.querySelector("risultato");
+
+// Modifico il colore del pulsante se il mouse va sopra l'elemento
+const pulsanteGioca = document.getElementById("lanciaDado");
+pulsanteGioca.addEventListener("mouseenter", function(){
+    pulsanteGioca.style.backgroundColor = "rgb(255, 123, 66)";
+});
+
+pulsanteGioca.addEventListener("mouseleave", function(){
+    pulsanteGioca.style.backgroundColor = "red";
+});
+
+
+
+
+
 // Mostra a schermo se il vincitore è il computer, l'utente o invece è pareggio
 if(valoreDadoComputer > valoreDadoUtente){
     console.log("Il vincitore è il Computer");

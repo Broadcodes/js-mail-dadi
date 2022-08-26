@@ -12,4 +12,12 @@ const valoreDadoUtente = dadoUtente[valoreEstrattoUtente];
 console.log(`Computer: ${valoreDadoComputer}`);
 console.log(`Utente: ${valoreDadoUtente}`);
 
+// Mostra a schermo se il vincitore è il computer, l'utente o invece è pareggio
+if(valoreDadoComputer > valoreDadoUtente){
+    console.log("Il vincitore è il Computer");
+} else if (valoreDadoComputer < valoreDadoUtente){
+    console.log("Il vincitore è l'Utente");
+} else {
+    console.log("Pareggio");
+}
 
